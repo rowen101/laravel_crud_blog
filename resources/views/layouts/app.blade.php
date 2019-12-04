@@ -7,8 +7,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    {{-- <title>{{ config('app.name', 'Danao Gateway') }}</title> --}}
-<title>Danao Gateway</title>
+    <title>{{ config('app.name', 'MyBlog') }}</title>
+
 
 
     <!-- Fonts -->
