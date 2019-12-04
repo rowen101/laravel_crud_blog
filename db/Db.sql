@@ -46,8 +46,8 @@ REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(2, '2014_10_12_100000_create_password_resets_table', 1),
 	(3, '2019_08_19_000000_create_failed_jobs_table', 1),
 	(4, '2019_12_02_094442_create_posts_table', 1),
-	(5, '2019_12_03_032451_add_user_id_to_posts', 2),
-	(6, '2019_12_03_122519_add_cover_image_to_posts', 3);
+	(5, '2019_12_03_032451_add_user_id_to_posts', 1),
+	(6, '2019_12_03_122519_add_cover_image_to_posts', 1);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
 
@@ -59,10 +59,8 @@ CREATE TABLE IF NOT EXISTS `password_resets` (
   KEY `password_resets_email_index` (`email`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table lsapp.password_resets: 1 rows
+-- Dumping data for table lsapp.password_resets: 0 rows
 /*!40000 ALTER TABLE `password_resets` DISABLE KEYS */;
-REPLACE INTO `password_resets` (`email`, `token`, `created_at`) VALUES
-	('growen@live.com', '$2y$10$FtcjdBHC0f8M5EKtfBm8K.ux8BIh0FgRqm3jwSbk4vN0AjVO0HkGm', '2019-12-03 03:20:43');
 /*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
 
 
@@ -70,18 +68,19 @@ REPLACE INTO `password_resets` (`email`, `token`, `created_at`) VALUES
 CREATE TABLE IF NOT EXISTS `posts` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `body` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `user_id` int(11) NOT NULL,
   `cover_image` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table lsapp.posts: 1 rows
+-- Dumping data for table lsapp.posts: 2 rows
 /*!40000 ALTER TABLE `posts` DISABLE KEYS */;
 REPLACE INTO `posts` (`id`, `title`, `body`, `created_at`, `updated_at`, `user_id`, `cover_image`) VALUES
-	(4, 'Way klase, biyahe gikanselar', '<p>fdgfd</p>', '2019-12-03 03:08:32', '2019-12-03 13:14:43', 1, '60734119_1025300684342320_6186645432039374848_n_1575378883.jpg');
+	(2, 'Facebook to allow transfer of photos, videos to Google Photos', '<p>Facebook Inc said on Monday it has introduced an option to transfer photos and videos from the social media network directly to other services, starting with Google Photos.</p>\r\n\r\n<p>The option will be available to users in Ireland, with a worldwide roll-out planned for the first half of 2020.</p>\r\n\r\n<p>All data transfers will be encrypted and users will be asked for a password before the transfer is initiated, the company said in a blog post.</p>\r\n\r\n<p>Facebook said in September it supports data portability and is planning to build new tools around it.</p>\r\n\r\n<p>United States Senators Josh Hawley, Mark Warner and Richard Blumenthal introduced a bill in late October that would require communications platforms with more than 100 million monthly active members to allow its users to easily move, or port, their data to another network.</p>', '2019-12-04 02:31:15', '2019-12-04 02:31:15', 1, '20191113-facebook_1575426675.jpg'),
+	(3, '[Update: Galaxy S10] Samsung Galaxy Note 10 and Note 9 now receiving December 2019 security patch', '<p>The Samsung Galaxy Note 9 and Note 10 are now receiving the December 2019 security patch &mdash; ahead of the Google Pixel.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Samsung is on a roll with updates recently, having started the public rollout of Android 10 for the Galaxy S10 already. Kudos to the Korean company for improving the speed of security updates. The OTA update is now heading out in over 25 European markets (via&nbsp;<em><a href="https://ww.9to5google.com/?load=aHR0cHM6Ly93d3cuc2FtbW9iaWxlLmNvbS9uZXdzL2dhbGF4eS1ub3RlLTEwLWFuZC1nYWxheHktbm90ZS05LWdldC1kZWNlbWJlci1zZWN1cml0eS11cGRhdGUv&amp;r=1">SamMobile</a></em>) for the duo of Note flagship devices.</p>\r\n\r\n<hr />\r\n<p>[<strong>Update 12/03</strong>]: The December 2019 security patch is now rolling out for the unlocked Galaxy S10 in the United States (via&nbsp;<em><a href="https://ww.9to5google.com/?load=aHR0cHM6Ly93d3cuc2FtbW9iaWxlLmNvbS9uZXdzL3VubG9ja2VkLWdhbGF4eS1zMTAtYTUwLWdldC1kZWNlbWJlci1zZWN1cml0eS11cGRhdGUtaW4tdXMv&amp;r=1">SamMobile</a></em>). The inherent differences between the Exynos and Snapdragon models mean that it often takes a little while before the US version (with the Snapdragon chipset) gets the same updates.</p>\r\n\r\n<p>Samsung seems to have put the pedal to the metal recently with updates and with the impending release of Android 10, this might have been another catalyst for the patch rolling out so soon. Be sure to head to Settings &gt; System updates.</p>\r\n\r\n<hr />\r\n<p>For those of you with the Galaxy Note 10, the firmware version&nbsp;<strong>N97*FXXS1ASKB&nbsp;</strong>is the build with the December 2019 security patch you&rsquo;ll be looking for. Alternatively, if you have the Galaxy Note 9 the firmware build you&rsquo;ll be awaiting is&nbsp;<strong>N960FXXS4CSK2</strong>&nbsp;&mdash; although the rollout has only been confirmed in Germany at present.</p>\r\n\r\n<p>We&rsquo;re hoping that the Note 10 does get the full Android 10 update in the coming weeks after the S10 and S10+ have already started getting the full OS upgrade in some regions. If this incremental security patch is any indication, we&rsquo;ll have a few weeks longer to wait for OneUI 2.0 on the latest Samsung flagship. That also lines up with the Android 10 roadmap that hints at a January 2020 release for the Note 10 &mdash; and late January 2020 for the Note 9.</p>\r\n\r\n<p>If you have received the December patch on your Galaxy Note 10 or Note 9, be sure to let us know down in the comments section below. Be sure to head to your device Settings &gt; System updates panel to check if you have the update waiting for your device.</p>', '2019-12-04 02:32:41', '2019-12-04 02:32:41', 1, 'samsung_galaxy_note_10_plus_18_1575426761.jpg');
 /*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 
 
@@ -97,13 +96,12 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table lsapp.users: 2 rows
+-- Dumping data for table lsapp.users: 1 rows
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 REPLACE INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-	(1, 'rowen', 'growen@live.com', NULL, '$2y$10$eThl3bFuAS8IuMh9h1atl.VsLa0GlpgdMl0c.tyrcHg3MswAZw6iq', 'Oi2uiEjNAn9p5mZMuzfv1P1iLr3tIh8LdIujc1AHTx3u0DMKIXbwdYnAExZK', '2019-12-03 03:12:43', '2019-12-03 03:12:43'),
-	(2, 'ronel', 'gronel@live.com', NULL, '$2y$10$9oOcKZ9rQeYG6wUnsg0THOWnz1boVu0poDkAmy5w6jtf.s3Sp07ai', NULL, '2019-12-03 06:08:05', '2019-12-03 06:08:05');
+	(1, 'rowen', 'growen@live.com', NULL, '$2y$10$M8QuNE.h3jz//RD16kkQN.oisN8ZkHKZq6/rutCdljZj9xCVS2tLm', NULL, '2019-12-04 02:07:11', '2019-12-04 02:07:11');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
