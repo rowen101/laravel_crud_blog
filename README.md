@@ -29,6 +29,10 @@ $ composer install
 ## Usage
 
 ``` bash
+# storage link
+php artisan storage:link
+# generate key
+php artisan key:generate
 # run laravel
 php artisan serve
 
